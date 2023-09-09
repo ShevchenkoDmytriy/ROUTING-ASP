@@ -1,0 +1,25 @@
+﻿@model MVC.Model.Users
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@*	<link rel="stylesheet" href="~/style/style.css">*@
+	<title>Document</title>
+</head>
+<body>
+
+	<h1>Index</h1>
+
+	<form @*action="@Url.Action("Index", "Home")" method="post"*@ asp-action="about" asp-controller="home">
+		<label >Name</label>
+		<input type="text" asp-for="name" name="name" /><br />
+		<label for="field2">Age</label>
+		<input type="number" asp-for="age" name="age" /><br />
+		<input type="submit" value="enter" />
+	</form>
+
+	@*<a href="@Url.Action("About", "Home")">About</a>*@
+@*<script src="~/js/script.js"></script>*@
+</body>
+</html>

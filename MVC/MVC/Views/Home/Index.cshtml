@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<MVC.Model.Users>
+<h2>People</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("About", "Home")">Додати користувача</a>
