@@ -24,10 +24,10 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> About(string Name,int Age)
+        public async Task<IActionResult> About(/*string Name,int Age*/Users user)
         {
-            var newUser = new Users { Name = Name, Age = Age };
-            db.users.Add(newUser);
+            //var newUser = new Users { Name = Name, Age = Age };
+            db.users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
         }
