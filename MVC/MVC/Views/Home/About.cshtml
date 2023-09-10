@@ -1,4 +1,4 @@
-﻿@model MVC.Model.Users
+﻿@model IEnumerable<MVC.Model.Users>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +10,14 @@
 <body>
 
 	<h1>Index</h1>
-
-	<form @*action="@Url.Action("Index", "Home")" method="post"*@ asp-action="about" asp-controller="home">
-		<label >Name</label>
-		<input type="text" asp-for="name" name="name" /><br />
-		<label for="field2">Age</label>
-		<input type="number" asp-for="age" name="age" /><br />
+	<form action="@Url.Action("About", "Home")" method="post">
+		<label asp-for="Name">Name</label>
+		<input type="text" name="Name" /><br />
+		<label asp-for="Age">Age</label>
+		<input type="number" name="Age" /><br />
 		<input type="submit" value="enter" />
 	</form>
+
 
 	@*<a href="@Url.Action("About", "Home")">About</a>*@
 @*<script src="~/js/script.js"></script>*@

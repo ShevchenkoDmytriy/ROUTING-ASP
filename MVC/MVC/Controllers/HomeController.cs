@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVC.Model;
-using System.Threading.Tasks;
-
 namespace MVC.Controllers
 {
     public class HomeController : Controller
@@ -12,6 +11,7 @@ namespace MVC.Controllers
         {
             db = context;
         }
+
         public async Task<IActionResult> Index()
         {
             var users = await db.users.ToListAsync();
@@ -24,11 +24,13 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> About(Users user)
+        public async Task<IActionResult> About(string Name,int Age)
         {
-            db.users.Add(user);
-            await db.SaveChangesAsync();
-            return View("Index");
+            var newUser = new Users { Name = Name, Age = Age };
+            db.users.Add(newUser);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
         }
+
     }
 }
